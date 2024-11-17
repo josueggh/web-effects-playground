@@ -1,4 +1,4 @@
-# Interactive Header with Search Component
+# Interactive Header with Search Component 🔍
 
 A modern, responsive header component with an animated search functionality and mobile-friendly navigation menu. Built with vanilla JavaScript and CSS, this component provides a clean and intuitive user interface for both desktop and mobile devices.
 
