@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Interactive header with search functionality">
+  <title>Interactive Header with Search</title>
+  <link rel="stylesheet" href="main.css" type="text/css"/>
+</head>
+<body>
+<header class="header">
+  <nav class="nav-container">
+    <div class="nav-left">
+      <button class="menu-button">☰</button>
+      <a href="#" class="logo">Brand</a>
+    </div>
+    <div class="nav-content">
+      <div class="nav-links">
+        <a href="#" class="nav-link">Work</a>
+        <a href="#" class="nav-link">About</a>
+        <a href="#" class="nav-link">News</a>
+        <a href="#" class="nav-link">Contact</a>
+      </div>
+    </div>
+    <div class="search-icon-wrapper">
+      <button class="search-icon"></button>
+    </div>
+    <div class="search-container">
+      <div class="search-wrapper">
+        <input type="text" class="search-input" placeholder="Search...">
+        <ul class="results">
+          <li class="active">How to create a responsive navigation bar</li>
+          <li>Best practices for modern web design</li>
+          <li>Understanding CSS Grid layouts</li>
+          <li>Optimizing website performance</li>
+          <li>Mobile-first design principles</li>
+          <li>Using CSS animations effectively</li>
+        </ul>
+      </div>
+      <button class="close-icon hidden"></button>
+    </div>
+  </nav>
+  <div class="overlay"></div>
+</header>
+<div class="image"></div>
+
+<script type="text/javascript" src="main.js"></script>
+</body>
+</html>
