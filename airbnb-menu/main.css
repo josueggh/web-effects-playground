@@ -1,0 +1,154 @@
+:root {
+    /* Colors */
+    --color-background: #e1e1e1;
+    --color-white: #ffffff;
+    --color-border: #e5e5e5;
+    --color-text-primary: #222222;
+    --color-text-secondary: #717171;
+    --color-hover: #e3edf8;
+    --color-primary: #007bff;
+    --color-primary-hover: #005ec9;
+    --color-shadow: rgba(0, 0, 0, 0.08);
+    --color-transparent: transparent;
+
+    /* Layout */
+    --divider-width: 1px;
+    --divider-height: 32px;
+    --icon-size: 20px;
+    --inset-hover: -2px;
+    --header-padding: 1px;
+    --hover-padding: 3px;
+
+    /* Typography */
+    --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --font-size-base: 14px;
+    --font-weight-semibold: 600;
+
+    /* Spacing */
+    --spacing-xs: 4px;
+    --spacing-sm: 12px;
+    --spacing-md: 14px;
+    --spacing-lg: 16px;
+    --spacing-xl: 24px;
+
+    /* Border */
+    --border-width: 1px;
+    --border-radius-full: 999px;
+
+    /* Transitions */
+    --transition-default: 0.2s;
+
+    /* Z-index */
+    --z-base: 0;
+    --z-hover: 1;
+    --z-button: 2;
+
+    /* Shadows */
+    --shadow-header: 0 2px 4px var(--color-shadow);
+}
+
+/* Using variables */
+body {
+    font-family: var(--font-family);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: var(--color-background);
+}
+
+.search-header {
+    width: 606px;
+    background: var(--color-white);
+    border-radius: var(--border-radius-full);
+    border: var(--border-width) solid var(--color-border);
+    display: flex;
+    align-items: stretch;
+    box-shadow: var(--shadow-header);
+    position: relative;
+    padding: var(--header-padding) 0;
+}
+
+.menu-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    transition: transform var(--transition-default);
+    cursor: pointer;
+}
+
+.divider {
+    width: var(--divider-width);
+    background-color: var(--color-border);
+    margin: auto 0;
+    align-self: center;
+    height: var(--divider-height);
+    transition: background-color var(--transition-default);
+}
+
+.menu-item:hover + .divider,
+.divider:has(+ .menu-item:hover) {
+    background-color: var(--color-transparent);
+}
+
+.menu-item:hover::before {
+    content: '';
+    position: absolute;
+    inset: var(--inset-hover);
+    background-color: var(--color-hover);
+    border-radius: var(--border-radius-full);
+    padding: var(--hover-padding);
+    z-index: var(--z-base);
+}
+
+.menu-item:hover {
+    z-index: var(--z-hover);
+}
+
+.menu-item--with-action {
+    padding-right: 0;
+}
+
+.content {
+    padding: var(--spacing-md) var(--spacing-xl);
+    position: relative;
+    z-index: var(--z-hover);
+}
+
+.label {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.placeholder {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+}
+
+.search-button {
+    background: var(--color-primary);
+    border: none;
+    color: var(--color-white);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-full);
+    cursor: pointer;
+    margin: 0 var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color var(--transition-default);
+    position: relative;
+    z-index: var(--z-button);
+}
+
+.menu-item:hover .search-button {
+    background: var(--color-primary-hover);
+}
+
+.search-icon {
+    width: var(--icon-size);
+    height: var(--icon-size);
+}
