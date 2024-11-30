@@ -1,0 +1,119 @@
+:root {
+    --bg-color: #0a0a0a;
+    --sidebar-color: #0a0a0a;
+    --text-color: white;
+    --main-bg: white;
+    --menu-btn-bg: #04020a;
+    --hover-bg: rgba(255, 255, 255, 0.1);
+    --transition-timing: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    --sidebar-width: 180px;
+    --sidebar-paddint-top: 100px;
+    --menu-padding: 20px;
+    --menu-btn-height:20px;
+    --border-radius: 4px;
+    --menu-btn-position: 20px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background: var(--bg-color);
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.scene {
+    /*height: 80vh;*/
+    /*perspective: 1500px;*/
+}
+
+.menu-btn {
+    position: fixed;
+    top: var(--menu-btn-position);
+    left: var(--menu-btn-position);
+    z-index: 2;
+    padding: 8px 16px;
+    background-image: url('data:image/svg+xml;utf8,<svg%20enable-background%3D%22new%200%200%20512%20512%22%20height%3D%22512%22%20viewBox%3D%220%200%20512%20512%22%20width%3D%22512%22%20xmlns%3D%22http://www.w3.org/2000/svg%22><path%20d%3D%22m128%20102.4c0-14.138%2011.462-25.6%2025.6-25.6h332.8c14.138%200%2025.6%2011.462%2025.6%2025.6s-11.462%2025.6-25.6%2025.6h-332.8c-14.138%200-25.6-11.463-25.6-25.6zm358.4%20128h-460.8c-14.138%200-25.6%2011.463-25.6%2025.6%200%2014.138%2011.462%2025.6%2025.6%2025.6h460.8c14.138%200%2025.6-11.462%2025.6-25.6%200-14.137-11.462-25.6-25.6-25.6zm0%20153.6h-230.4c-14.137%200-25.6%2011.462-25.6%2025.6%200%2014.137%2011.463%2025.6%2025.6%2025.6h230.4c14.138%200%2025.6-11.463%2025.6-25.6%200-14.138-11.462-25.6-25.6-25.6z%22/%3E%3C/svg%3E');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color:transparent;
+    border:none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    height: var(--menu-btn-height);
+}
+.menu-btn.open{
+    background-image: url('data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjMyOXB0IiB2aWV3Qm94PSIwIDAgMzI5LjI2OTMzIDMyOSIgd2lkdGg9IjMyOXB0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Im0xOTQuODAwNzgxIDE2NC43Njk1MzEgMTI4LjIxMDkzOC0xMjguMjE0ODQzYzguMzQzNzUtOC4zMzk4NDQgOC4zNDM3NS0yMS44MjQyMTkgMC0zMC4xNjQwNjMtOC4zMzk4NDQtOC4zMzk4NDQtMjEuODI0MjE5LTguMzM5ODQ0LTMwLjE2NDA2MyAwbC0xMjguMjE0ODQ0IDEyOC4yMTQ4NDQtMTI4LjIxMDkzNy0xMjguMjE0ODQ0Yy04LjM0Mzc1LTguMzM5ODQ0LTIxLjgyNDIxOS04LjMzOTg0NC0zMC4xNjQwNjMgMC04LjM0Mzc1IDguMzM5ODQ0LTguMzQzNzUgMjEuODI0MjE5IDAgMzAuMTY0MDYzbDEyOC4yMTA5MzggMTI4LjIxNDg0My0xMjguMjEwOTM4IDEyOC4yMTQ4NDRjLTguMzQzNzUgOC4zMzk4NDQtOC4zNDM3NSAyMS44MjQyMTkgMCAzMC4xNjQwNjMgNC4xNTYyNSA0LjE2MDE1NiA5LjYyMTA5NCA2LjI1IDE1LjA4MjAzMiA2LjI1IDUuNDYwOTM3IDAgMTAuOTIxODc1LTIuMDg5ODQ0IDE1LjA4MjAzMS02LjI1bDEyOC4yMTA5MzctMTI4LjIxNDg0NCAxMjguMjE0ODQ0IDEyOC4yMTQ4NDRjNC4xNjAxNTYgNC4xNjAxNTYgOS42MjEwOTQgNi4yNSAxNS4wODIwMzIgNi4yNSA1LjQ2MDkzNyAwIDEwLjkyMTg3NC0yLjA4OTg0NCAxNS4wODIwMzEtNi4yNSA4LjM0Mzc1LTguMzM5ODQ0IDguMzQzNzUtMjEuODI0MjE5IDAtMzAuMTY0MDYzem0wIDAiIGZpbGw9IiNGRkZGRkYiLz48L3N2Zz4=');
+}
+.page {
+    position: relative;
+    height: 100vh;
+    transform-style: preserve-3d;
+    transition: transform var(--transition-timing);
+    transform: translateX(0) rotateY(0) scale(1);
+}
+
+.page.open {
+    transform: translateX(130px) scale(0.90) translateY(-30px);
+}
+
+.page.open main {
+    border-radius: 20px;
+}
+
+main {
+    padding: var(--menu-padding) var(--menu-padding) var(--menu-padding) calc(var(--menu-padding) * 3);
+    min-height: 100vh;
+    background: var(--main-bg);
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100%;
+    background: var(--sidebar-color);
+    color: var(--text-color);
+    padding: var(--menu-padding);
+    padding-top: var(--sidebar-paddint-top);
+    transform: translateX(-100%);
+    transition: transform var(--transition-timing);
+}
+
+.sidebar.open {
+    transform: translateX(0);
+}
+
+.nav-item {
+    width: 100%;
+    text-align: left;
+    padding: 12px;
+    border: none;
+    background: none;
+    color: var(--text-color);
+    cursor: pointer;
+    margin-bottom: 8px;
+    border-radius: var(--border-radius);
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    transition: background 0.3s;
+}
+
+.nav-item:hover {
+    background: var(--hover-bg);
+}
+
+@media (max-width: 768px) {
+    :root {
+        --sidebar-width: 170px;
+        --menu-padding: 17px
+    }
+
+    .page.open {
+        transform: translateX(200px) rotateY(0deg) scale(0.90) translateY(-20px);
+    }
+}
